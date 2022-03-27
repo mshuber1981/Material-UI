@@ -1,7 +1,10 @@
+// Media
 import logo from "./logo.svg";
+// Components
 import "./App.css";
+import { Button } from "@material-ui/core";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -12,11 +15,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn Material UI
+          <Button variant="contained">Learn Material UI</Button>
         </a>
       </header>
     </div>
   );
 }
-
-export default App;
