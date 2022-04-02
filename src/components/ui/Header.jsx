@@ -3,6 +3,8 @@ import { cloneElement } from "react";
 import {
   AppBar,
   makeStyles,
+  Tab,
+  Tabs,
   Toolbar,
   useScrollTrigger,
 } from "@material-ui/core";
@@ -31,6 +33,14 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     height: "7em",
   },
+  tabContainer: {
+    marginLeft: "auto",
+  },
+  tab: {
+    ...theme.typography.tab,
+    minWidth: 10,
+    marginLeft: "25px",
+  },
 }));
 
 export default function Header() {
@@ -42,6 +52,13 @@ export default function Header() {
         <AppBar>
           <Toolbar disableGutters>
             <img src={logo} alt="company logo" className={classes.logo} />
+            <Tabs className={classes.tabContainer}>
+              <Tab label="Home" className={classes.tab} />
+              <Tab label="Services" className={classes.tab} />
+              <Tab label="The Revolution" className={classes.tab} />
+              <Tab label="About Us" className={classes.tab} />
+              <Tab label="Contact Us" className={classes.tab} />
+            </Tabs>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
