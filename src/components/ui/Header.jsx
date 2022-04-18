@@ -2,6 +2,7 @@ import { cloneElement } from "react";
 // MUI
 import {
   AppBar,
+  Button,
   makeStyles,
   Tab,
   Tabs,
@@ -41,10 +42,19 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 10,
     marginLeft: "25px",
   },
+  button: {
+    ...theme.typography.estimate,
+    borderRadius: "50px",
+    marginLeft: "50px",
+    marginRight: "25px",
+    height: "45px",
+  },
 }));
 
 export default function Header() {
   const classes = useStyles();
+
+  console.log(useStyles().button);
 
   return (
     <>
@@ -52,13 +62,20 @@ export default function Header() {
         <AppBar>
           <Toolbar disableGutters>
             <img src={logo} alt="company logo" className={classes.logo} />
-            <Tabs className={classes.tabContainer}>
+            <Tabs value={false} className={classes.tabContainer}>
               <Tab label="Home" className={classes.tab} />
               <Tab label="Services" className={classes.tab} />
               <Tab label="The Revolution" className={classes.tab} />
               <Tab label="About Us" className={classes.tab} />
               <Tab label="Contact Us" className={classes.tab} />
             </Tabs>
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+            >
+              Free Estimate
+            </Button>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
