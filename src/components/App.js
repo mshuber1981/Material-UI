@@ -8,6 +8,9 @@ import Header from "./ui/Header";
 // Pages
 import Home from "../pages/Home";
 import Services from "../pages/Services";
+import CustomSoftware from "../pages/CustomSoftware";
+import MobileDev from "../pages/MobileDev";
+import WebDev from "../pages/WebDev";
 import TheRevolution from "../pages/TheRevolution";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
@@ -21,10 +24,13 @@ export default function App() {
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/Services" element={<Services />} />
-          <Route exact path="/The-Revolution" element={<TheRevolution />} />
-          <Route exact path="/About-Us" element={<AboutUs />} />
-          <Route exact path="/Contact-Us" element={<ContactUs />} />
+          <Route exact path="Services" element={<Services />} />
+          <Route exact path="Custom-Software" element={<CustomSoftware />} />
+          <Route exact path="Mobile-Apps" element={<MobileDev />} />
+          <Route exact path="Websites" element={<WebDev />} />
+          <Route exact path="The-Revolution" element={<TheRevolution />} />
+          <Route exact path="About-Us" element={<AboutUs />} />
+          <Route exact path="Contact-Us" element={<ContactUs />} />
         </Routes>
       </ThemeProvider>
     </HashRouter>
