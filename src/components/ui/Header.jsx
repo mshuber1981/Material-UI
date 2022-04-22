@@ -5,6 +5,8 @@ import {
   AppBar,
   Button,
   makeStyles,
+  Menu,
+  MenuItem,
   Tab,
   Tabs,
   Toolbar,
@@ -60,11 +62,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
   const [value, setValue] = React.useState(0);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
   const { pathname } = useLocation();
   const classes = useStyles();
 
   function handleChange(e, value) {
     setValue(value);
+  }
+
+  function handleClick(e) {
+    setAnchorEl(e.currentTarget);
+    setOpen(true);
+  }
+
+  function handleClose(e) {
+    setAnchorEl(null);
+    setOpen(false);
   }
 
   // Check path and update active tab on a browser refresh
@@ -116,6 +130,9 @@ export default function Header() {
                 label="Services"
                 component={Link}
                 to={"/Services"}
+                aria-owns={anchorEl ? "simple-menu" : undefined}
+                aria-haspopup={anchorEl ? "true" : undefined}
+                onMouseOver={(e) => handleClick(e)}
                 className={classes.tab}
               />
               <Tab
@@ -144,6 +161,54 @@ export default function Header() {
             >
               Free Estimate
             </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{ onMouseLeave: handleClose }}
+            >
+              <MenuItem
+                component={Link}
+                to="Services"
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+              >
+                Services
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                to="Custom-Software"
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+              >
+                Custom Software Developement
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                to="Mobile-Apps"
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+              >
+                Mobile App Developement
+              </MenuItem>
+              <MenuItem
+                component={Link}
+                to="Websites"
+                onClick={() => {
+                  handleClose();
+                  setValue(1);
+                }}
+              >
+                Website Developement
+              </MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
