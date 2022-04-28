@@ -58,6 +58,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "25px",
     height: "45px",
   },
+  menu: {
+    backgroundColor: theme.palette.common.blue,
+    color: "white",
+    borderRadius: 0,
+  },
+  menuItem: {
+    ...theme.typography.tab,
+    opacity: 0.7,
+    "&:hover": {
+      opacity: 1,
+    },
+  },
 }));
 
 export default function Header() {
@@ -165,12 +177,15 @@ export default function Header() {
               id="simple-menu"
               anchorEl={anchorEl}
               open={open}
+              elevation={0}
+              classes={{ paper: classes.menu }}
               onClose={handleClose}
               MenuListProps={{ onMouseLeave: handleClose }}
             >
               <MenuItem
                 component={Link}
                 to="Services"
+                classes={{ root: classes.menuItem }}
                 onClick={() => {
                   handleClose();
                   setValue(1);
@@ -181,6 +196,7 @@ export default function Header() {
               <MenuItem
                 component={Link}
                 to="Custom-Software"
+                classes={{ root: classes.menuItem }}
                 onClick={() => {
                   handleClose();
                   setValue(1);
@@ -191,6 +207,7 @@ export default function Header() {
               <MenuItem
                 component={Link}
                 to="Mobile-Apps"
+                classes={{ root: classes.menuItem }}
                 onClick={() => {
                   handleClose();
                   setValue(1);
@@ -201,6 +218,7 @@ export default function Header() {
               <MenuItem
                 component={Link}
                 to="Websites"
+                classes={{ root: classes.menuItem }}
                 onClick={() => {
                   handleClose();
                   setValue(1);
