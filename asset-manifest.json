@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/Material-UI/static/js/main.acc18bc1.js",
+    "main.js": "/Material-UI/static/js/main.8db35d2e.js",
     "index.html": "/Material-UI/index.html",
     "static/media/logo.svg": "/Material-UI/static/media/logo.b9bbc23c635093fd1e4b08124fcee86c.svg",
-    "main.acc18bc1.js.map": "/Material-UI/static/js/main.acc18bc1.js.map"
+    "main.8db35d2e.js.map": "/Material-UI/static/js/main.8db35d2e.js.map"
   },
   "entrypoints": [
-    "static/js/main.acc18bc1.js"
+    "static/js/main.8db35d2e.js"
   ]
 }
