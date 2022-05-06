@@ -1,7 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import process from "process";
 // Media
 import logo from "../../assets/logo.svg";
+// Icons
+import MenuIcon from "@material-ui/icons/Menu";
 // Components
 import {
   AppBar,
@@ -9,12 +12,14 @@ import {
   makeStyles,
   Menu,
   MenuItem,
+  SwipeableDrawer,
   Tab,
   Tabs,
   Toolbar,
   useMediaQuery,
   useTheme,
   useScrollTrigger,
+  IconButton,
 } from "@material-ui/core";
 
 // https://v4.mui.com/components/app-bar/#elevate-app-bar
@@ -87,36 +92,48 @@ const useStyles = makeStyles((theme) => ({
   selected: {
     opacity: 1,
   },
+  drawerIconContainer: {
+    marginLeft: "auto",
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
+  },
+  drawerIcon: {
+    height: "50px",
+    width: "50px",
+  },
 }));
 
 export default function Header() {
   const [value, setValue] = React.useState(0);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
+  const [openMenu, setOpenMenu] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [openDrawer, setOpenDrawer] = React.useState(false);
   const { pathname } = useLocation();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const classes = useStyles();
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-  function handleChange(e, value) {
-    setValue(value);
+  function handleChange(e, newValue) {
+    setValue(newValue);
   }
 
   function handleClick(e) {
     setAnchorEl(e.currentTarget);
-    setOpen(true);
+    setOpenMenu(true);
   }
 
   function handleMenuItemClick(e, i) {
     setAnchorEl(null);
-    setOpen(false);
+    setOpenMenu(false);
     setSelectedIndex(i);
   }
 
   function handleClose(e) {
     setAnchorEl(null);
-    setOpen(false);
+    setOpenMenu(false);
   }
 
   const menuOptions = [
@@ -197,7 +214,7 @@ export default function Header() {
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
-        open={open}
+        open={openMenu}
         elevation={0}
         classes={{ paper: classes.menu }}
         onClose={handleClose}
@@ -228,6 +245,27 @@ export default function Header() {
     </>
   );
 
+  const drawer = (
+    <>
+      <SwipeableDrawer
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        onOpen={() => setOpenDrawer(true)}
+      >
+        Test
+      </SwipeableDrawer>
+      <IconButton
+        disableRipple
+        className={classes.drawerIconContainer}
+        onClick={() => setOpenDrawer(!openDrawer)}
+      >
+        <MenuIcon className={classes.drawerIcon} />
+      </IconButton>
+    </>
+  );
+
   return (
     <>
       <ElevationScroll>
@@ -243,7 +281,7 @@ export default function Header() {
             >
               <img src={logo} alt="company logo" className={classes.logo} />
             </Button>
-            {matches ? null : tabs}
+            {matches ? drawer : tabs}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
