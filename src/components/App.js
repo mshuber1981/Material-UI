@@ -14,6 +14,7 @@ import WebDev from "../pages/WebDev";
 import TheRevolution from "../pages/TheRevolution";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
+import Estimate from "../pages/Estimate";
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
           <Route exact path="The-Revolution" element={<TheRevolution />} />
           <Route exact path="About-Us" element={<AboutUs />} />
           <Route exact path="Contact-Us" element={<ContactUs />} />
+          <Route exact path="Estimate" element={<Estimate />} />
         </Routes>
       </ThemeProvider>
     </HashRouter>
