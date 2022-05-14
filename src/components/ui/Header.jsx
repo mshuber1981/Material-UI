@@ -111,9 +111,13 @@ const useStyles = makeStyles((theme) => ({
   drawerItem: {
     ...theme.typography.tab,
     color: "white",
+    opacity: 0.7,
   },
   drawerItemEstimate: {
     backgroundColor: theme.palette.common.orange,
+  },
+  drawerItemSelected: {
+    opacity: 1,
   },
 }));
 
@@ -179,6 +183,8 @@ export default function Header() {
         setValue(3);
       } else if (pathname === "/Contact-Us" && value !== 4) {
         setValue(4);
+      } else if (pathname === "/Estimate" && value !== 5) {
+        setValue(5);
       }
     },
     [value, pathname]
@@ -280,9 +286,20 @@ export default function Header() {
             to="/"
             divider
             button
-            onClick={() => setOpenDrawer(false)}
+            selected={value === 0}
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(0);
+            }}
           >
-            <ListItemText className={classes.drawerItem} disableTypography>
+            <ListItemText
+              className={
+                value === 0
+                  ? `${classes.drawerItem} ${classes.drawerItemSelected}`
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
               Home
             </ListItemText>
           </ListItem>
@@ -291,9 +308,20 @@ export default function Header() {
             to="/Services"
             divider
             button
-            onClick={() => setOpenDrawer(false)}
+            selected={value === 1}
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(1);
+            }}
           >
-            <ListItemText className={classes.drawerItem} disableTypography>
+            <ListItemText
+              className={
+                value === 1
+                  ? `${classes.drawerItem} ${classes.drawerItemSelected}`
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
               Services
             </ListItemText>
           </ListItem>
@@ -302,9 +330,20 @@ export default function Header() {
             to="/The-Revolution"
             divider
             button
-            onClick={() => setOpenDrawer(false)}
+            selected={value === 2}
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(2);
+            }}
           >
-            <ListItemText className={classes.drawerItem} disableTypography>
+            <ListItemText
+              className={
+                value === 2
+                  ? `${classes.drawerItem} ${classes.drawerItemSelected}`
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
               The Revolution
             </ListItemText>
           </ListItem>
@@ -313,9 +352,20 @@ export default function Header() {
             to="/About-Us"
             divider
             button
-            onClick={() => setOpenDrawer(false)}
+            selected={value === 3}
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(3);
+            }}
           >
-            <ListItemText className={classes.drawerItem} disableTypography>
+            <ListItemText
+              className={
+                value === 3
+                  ? `${classes.drawerItem} ${classes.drawerItemSelected}`
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
               About Us
             </ListItemText>
           </ListItem>
@@ -324,9 +374,20 @@ export default function Header() {
             to="/Contact-Us"
             divider
             button
-            onClick={() => setOpenDrawer(false)}
+            selected={value === 4}
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(4);
+            }}
           >
-            <ListItemText className={classes.drawerItem} disableTypography>
+            <ListItemText
+              className={
+                value === 4
+                  ? `${classes.drawerItem} ${classes.drawerItemSelected}`
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
               Contact Us
             </ListItemText>
           </ListItem>
@@ -335,10 +396,21 @@ export default function Header() {
             to="/Estimate"
             divider
             button
+            selected={value === 5}
             className={classes.drawerItemEstimate}
-            onClick={() => setOpenDrawer(false)}
+            onClick={() => {
+              setOpenDrawer(false);
+              setValue(5);
+            }}
           >
-            <ListItemText className={classes.drawerItem} disableTypography>
+            <ListItemText
+              className={
+                value === 5
+                  ? `${classes.drawerItem} ${classes.drawerItemSelected}`
+                  : classes.drawerItem
+              }
+              disableTypography
+            >
               Free Estimate
             </ListItemText>
           </ListItem>
