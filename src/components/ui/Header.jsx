@@ -154,10 +154,47 @@ export default function Header() {
   }
 
   const menuOptions = [
-    { id: 1, name: "Services", link: "/Services" },
-    { id: 2, name: "Custom Software Developement", link: "/Custom-Software" },
-    { id: 3, name: "Mobile App Developement", link: "/Mobile-Apps" },
-    { id: 4, name: "Website Developement", link: "/Websites" },
+    {
+      id: "1M",
+      name: "Services",
+      link: "/Services",
+      activeIndex: 1,
+      selectedIndex: 0,
+    },
+    {
+      id: "2M",
+      name: "Custom Software Developement",
+      link: "/Custom-Software",
+      activeIndex: 1,
+      selectedIndex: 1,
+    },
+    {
+      id: "3M",
+      name: "Mobile App Developement",
+      link: "/Mobile-Apps",
+      activeIndex: 1,
+      selectedIndex: 2,
+    },
+    {
+      id: "4M",
+      name: "Website Developement",
+      link: "/Websites",
+      activeIndex: 1,
+      selectedIndex: 3,
+    },
+  ];
+
+  const routes = [
+    { id: "1R", name: "Home", link: "/", activeIndex: 0 },
+    { id: "2R", name: "Services", link: "/Services", activeIndex: 1 },
+    {
+      id: "3R",
+      name: "The Revolution",
+      link: "/The-Revolution",
+      activeIndex: 2,
+    },
+    { id: "4R", name: "About Us", link: "/About-Us", activeIndex: 3 },
+    { id: "5R", name: "Contact Us", link: "/Contact-Us", activeIndex: 4 },
   ];
 
   // Check path and update active tab on a browser refresh
@@ -183,8 +220,6 @@ export default function Header() {
         setValue(3);
       } else if (pathname === "/Contact-Us" && value !== 4) {
         setValue(4);
-      } else if (pathname === "/Estimate" && value !== 5) {
-        setValue(5);
       }
     },
     [value, pathname]
@@ -396,7 +431,7 @@ export default function Header() {
             to="/Estimate"
             divider
             button
-            selected={value === 5}
+            // selected={value === 5}
             className={classes.drawerItemEstimate}
             onClick={() => {
               setOpenDrawer(false);
