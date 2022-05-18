@@ -214,6 +214,9 @@ export default function Header() {
   // Check path and update active tab on a browser refresh
   React.useEffect(
     function () {
+      if (pathname === "/Estimate") {
+        setValue(5);
+      }
       [...menuOptions, ...routes].forEach(function (route) {
         if (pathname === route.link) {
           setValue(route.activeIndex);
