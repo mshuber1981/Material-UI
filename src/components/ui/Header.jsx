@@ -97,6 +97,9 @@ const useStyles = makeStyles((theme) => ({
   },
   selected: {
     opacity: 1,
+    "& div": {
+      opacity: 1,
+    },
   },
   drawerIconContainer: {
     marginLeft: "auto",
@@ -118,9 +121,6 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerItemEstimate: {
     backgroundColor: theme.palette.common.orange,
-  },
-  drawerItemSelected: {
-    opacity: 1,
   },
 }));
 
@@ -268,6 +268,7 @@ export default function Header() {
         open={openMenu}
         elevation={0}
         classes={{ paper: classes.menu }}
+        style={{ zIndex: theme.zIndex.modal + 1 }}
         onClose={handleClose}
         MenuListProps={{ onMouseLeave: handleClose }}
         keepMounted
@@ -317,19 +318,13 @@ export default function Header() {
               component={Link}
               to={route.link}
               selected={value === route.activeIndex}
+              classes={{ selected: classes.selected }}
               onClick={() => {
                 setOpenDrawer(false);
                 setValue(route.activeIndex);
               }}
             >
-              <ListItemText
-                disableTypography
-                className={
-                  value === route.activeIndex
-                    ? `${classes.drawerItem} ${classes.drawerItemSelected}`
-                    : classes.drawerItem
-                }
-              >
+              <ListItemText disableTypography className={classes.drawerItem}>
                 {route.name}
               </ListItemText>
             </ListItem>
@@ -340,20 +335,16 @@ export default function Header() {
             divider
             button
             selected={value === 5}
-            className={classes.drawerItemEstimate}
+            classes={{
+              root: classes.drawerItemEstimate,
+              selected: classes.selected,
+            }}
             onClick={() => {
               setOpenDrawer(false);
               setValue(5);
             }}
           >
-            <ListItemText
-              className={
-                value === 5
-                  ? `${classes.drawerItem} ${classes.drawerItemSelected}`
-                  : classes.drawerItem
-              }
-              disableTypography
-            >
+            <ListItemText className={classes.drawerItem} disableTypography>
               Free Estimate
             </ListItemText>
           </ListItem>
