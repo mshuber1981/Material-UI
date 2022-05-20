@@ -40,6 +40,9 @@ function ElevationScroll(props) {
 
 // https://v4.mui.com/styles/basics/#getting-started
 const useStyles = makeStyles((theme) => ({
+  appbar: {
+    zIndex: theme.zIndex.modal + 1,
+  },
   toolbarMargin: {
     ...theme.mixins.toolbar,
     marginBottom: "3em",
@@ -304,6 +307,7 @@ export default function Header() {
         onClose={() => setOpenDrawer(false)}
         onOpen={() => setOpenDrawer(true)}
       >
+        <div className={classes.toolbarMargin} />
         <List disablePadding>
           {routes.map((route) => (
             <ListItem
@@ -368,7 +372,7 @@ export default function Header() {
   return (
     <>
       <ElevationScroll>
-        <AppBar>
+        <AppBar position="fixed" className={classes.appbar}>
           <Toolbar disableGutters>
             <Button
               // https://v4.mui.com/guides/composition/#component-prop
