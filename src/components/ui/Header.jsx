@@ -43,14 +43,10 @@ const useStyles = makeStyles((theme) => ({
   appbar: {
     zIndex: theme.zIndex.modal + 1,
   },
-  toolbarMargin: {
-    ...theme.mixins.toolbar,
-    marginBottom: "3em",
-    [theme.breakpoints.down("md")]: {
-      marginBottom: "2.25em",
-    },
-    [theme.breakpoints.down("xs")]: {
-      marginBottom: "1.25em",
+  logoContainer: {
+    padding: 0,
+    "&:hover": {
+      backgroundColor: "transparent",
     },
   },
   logo: {
@@ -60,12 +56,6 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       height: "5.5em",
-    },
-  },
-  logoContainer: {
-    padding: 0,
-    "&:hover": {
-      backgroundColor: "transparent",
     },
   },
   tabContainer: {
@@ -121,6 +111,16 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerItemEstimate: {
     backgroundColor: theme.palette.common.orange,
+  },
+  toolbarMargin: {
+    ...theme.mixins.toolbar,
+    marginBottom: "3em",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "2.25em",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "1.25em",
+    },
   },
 }));
 
