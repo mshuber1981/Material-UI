@@ -5,6 +5,7 @@ import { CssBaseline, ThemeProvider } from "@material-ui/core";
 // import ScrollToTop from "./ScrollToTop";
 import theme from "./ui/Theme";
 import Header from "./ui/Header";
+import Footer from "./ui/Footer";
 // Pages
 import Home from "../pages/Home";
 import Services from "../pages/Services";
@@ -34,6 +35,7 @@ export default function App() {
           <Route exact path="Contact-Us" element={<ContactUs />} />
           <Route exact path="Estimate" element={<Estimate />} />
         </Routes>
+        <Footer />
       </ThemeProvider>
     </HashRouter>
   );
