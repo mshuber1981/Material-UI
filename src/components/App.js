@@ -1,3 +1,4 @@
+import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 // MUI - https://v4.mui.com/components/css-baseline/#css-baseline
 import { CssBaseline, ThemeProvider } from "@material-ui/core";
@@ -18,12 +19,20 @@ import ContactUs from "../pages/ContactUs";
 import Estimate from "../pages/Estimate";
 
 export default function App() {
+  const [value, setValue] = React.useState(0);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
   return (
     <HashRouter>
       {/* <ScrollToTop /> */}
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header />
+        <Header
+          value={value}
+          setValue={setValue}
+          selectedIndex={selectedIndex}
+          setSelectedIndex={setSelectedIndex}
+        />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="Services" element={<Services />} />
@@ -35,7 +44,12 @@ export default function App() {
           <Route exact path="Contact-Us" element={<ContactUs />} />
           <Route exact path="Estimate" element={<Estimate />} />
         </Routes>
-        <Footer />
+        <Footer
+          value={value}
+          setValue={setValue}
+          selectedIndex={selectedIndex}
+          setSelectedIndex={setSelectedIndex}
+        />
       </ThemeProvider>
     </HashRouter>
   );

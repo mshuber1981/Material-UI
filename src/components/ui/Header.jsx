@@ -124,11 +124,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header() {
-  const [value, setValue] = React.useState(0);
+export default function Header({
+  value,
+  setValue,
+  selectedIndex,
+  setSelectedIndex,
+}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [openMenu, setOpenMenu] = React.useState(false);
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
   const [openDrawer, setOpenDrawer] = React.useState(false);
   const { pathname } = useLocation();
   const theme = useTheme();
@@ -229,7 +233,15 @@ export default function Header() {
         }
       });
     },
-    [value, pathname, selectedIndex, menuOptions, routes]
+    [
+      pathname,
+      value,
+      setValue,
+      selectedIndex,
+      setSelectedIndex,
+      menuOptions,
+      routes,
+    ]
   );
 
   const tabs = (
