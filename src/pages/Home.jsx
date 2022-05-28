@@ -3,7 +3,9 @@ import React from "react";
 export default function Home() {
   return (
     <>
-      <h2>Home</h2>
+      <div style={{ minHeight: "75vh" }}>
+        <h2>Home</h2>
+      </div>
     </>
   );
 }
