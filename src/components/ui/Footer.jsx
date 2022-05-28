@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 // Media
 import footerAdornment from "../../assets/Footer Adornment.svg";
 // Components
-import { Grid, makeStyles } from "@material-ui/core";
+import { Grid, Hidden, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.common.blue,
     width: "100%",
     position: "relative",
-    zIndex: theme.zIndex.modal + 2,
+    zIndex: theme.zIndex.modal + 1,
   },
   mainContainer: {
     position: "absolute",
@@ -42,102 +42,134 @@ export default function Footer() {
 
   return (
     <footer className={classes.footer}>
-      <Grid container justifyContent="center" className={classes.mainContainer}>
-        <Grid item className={classes.gridItem}>
-          <Grid container direction="column" spacing={2}>
-            <Grid item component={Link} to="/" className={classes.link}>
-              Home
+      <Hidden mdDown>
+        <Grid
+          container
+          justifyContent="center"
+          className={classes.mainContainer}
+        >
+          <Grid item className={classes.gridItem}>
+            <Grid container direction="column" spacing={2}>
+              <Grid item component={Link} to="/" className={classes.link}>
+                Home
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item className={classes.gridItem}>
+            <Grid container direction="column" spacing={2}>
+              <Grid
+                item
+                component={Link}
+                to="/Services"
+                className={classes.link}
+              >
+                Services
+              </Grid>
+              <Grid
+                item
+                component={Link}
+                to="/Custom-Software"
+                className={classes.link}
+              >
+                Custom Software Development
+              </Grid>
+              <Grid
+                item
+                component={Link}
+                to="/Mobile-Apps"
+                className={classes.link}
+              >
+                Mobile App Development
+              </Grid>
+              <Grid
+                item
+                component={Link}
+                to="/Websites"
+                className={classes.link}
+              >
+                Website Development
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item className={classes.gridItem}>
+            <Grid container direction="column" spacing={2}>
+              <Grid
+                item
+                component={Link}
+                to="/The-Revolution"
+                className={classes.link}
+              >
+                The Revolution
+              </Grid>
+              <Grid
+                item
+                component={Link}
+                to="/The-Revolution"
+                className={classes.link}
+              >
+                Vision
+              </Grid>
+              <Grid
+                item
+                component={Link}
+                to="/The-Revolution"
+                className={classes.link}
+              >
+                Technology
+              </Grid>
+              <Grid
+                item
+                component={Link}
+                to="/The-Revolution"
+                className={classes.link}
+              >
+                Process
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item className={classes.gridItem}>
+            <Grid container direction="column" spacing={2}>
+              <Grid
+                item
+                component={Link}
+                to="/About-Us"
+                className={classes.link}
+              >
+                About Us
+              </Grid>
+              <Grid
+                item
+                component={Link}
+                to="/About-Us"
+                className={classes.link}
+              >
+                History
+              </Grid>
+              <Grid
+                item
+                component={Link}
+                to="/About-Us"
+                className={classes.link}
+              >
+                Team
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item className={classes.gridItem}>
+            <Grid container direction="column" spacing={2}>
+              <Grid
+                item
+                component={Link}
+                to="/Contact-Us"
+                className={classes.link}
+              >
+                Contact Us
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item className={classes.gridItem}>
-          <Grid container direction="column" spacing={2}>
-            <Grid item component={Link} to="/Services" className={classes.link}>
-              Services
-            </Grid>
-            <Grid
-              item
-              component={Link}
-              to="/Custom-Software"
-              className={classes.link}
-            >
-              Custom Software Development
-            </Grid>
-            <Grid
-              item
-              component={Link}
-              to="/Mobile-Apps"
-              className={classes.link}
-            >
-              Mobile App Development
-            </Grid>
-            <Grid item component={Link} to="/Websites" className={classes.link}>
-              Website Development
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item className={classes.gridItem}>
-          <Grid container direction="column" spacing={2}>
-            <Grid
-              item
-              component={Link}
-              to="/The-Revolution"
-              className={classes.link}
-            >
-              The Revolution
-            </Grid>
-            <Grid
-              item
-              component={Link}
-              to="/The-Revolution"
-              className={classes.link}
-            >
-              Vision
-            </Grid>
-            <Grid
-              item
-              component={Link}
-              to="/The-Revolution"
-              className={classes.link}
-            >
-              Technology
-            </Grid>
-            <Grid
-              item
-              component={Link}
-              to="/The-Revolution"
-              className={classes.link}
-            >
-              Process
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item className={classes.gridItem}>
-          <Grid container direction="column" spacing={2}>
-            <Grid item component={Link} to="/About-Us" className={classes.link}>
-              About Us
-            </Grid>
-            <Grid item component={Link} to="/About-Us" className={classes.link}>
-              History
-            </Grid>
-            <Grid item component={Link} to="/About-Us" className={classes.link}>
-              Team
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item className={classes.gridItem}>
-          <Grid container direction="column" spacing={2}>
-            <Grid
-              item
-              component={Link}
-              to="/Contact-Us"
-              className={classes.link}
-            >
-              Contact Us
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
+      </Hidden>
+
       <img
         src={footerAdornment}
         alt="black decorative slash"
