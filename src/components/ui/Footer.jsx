@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// Icons
+import { Facebook, Twitter, Instagram } from "@material-ui/icons";
 // Media
 import footerAdornment from "../../assets/Footer Adornment.svg";
 // Components
@@ -33,6 +35,21 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       width: "15em",
+    },
+  },
+  icon: {
+    fontSize: "4em",
+    color: "white",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "2.5em",
+    },
+  },
+  socialContainer: {
+    position: "absolute",
+    marginTop: "-6em",
+    right: "1.5em",
+    [theme.breakpoints.down("xs")]: {
+      right: "0.6em",
     },
   },
 }));
@@ -175,6 +192,22 @@ export default function Footer() {
         alt="black decorative slash"
         className={classes.adornment}
       />
+      <Grid
+        container
+        justifyContent="flex-end"
+        spacing={2}
+        className={classes.socialContainer}
+      >
+        <Grid item component={"a"} href="https://www.facebook.com">
+          <Facebook className={classes.icon} />
+        </Grid>
+        <Grid item component={"a"} href="https://www.twiiter.com">
+          <Twitter className={classes.icon} />
+        </Grid>
+        <Grid item component={"a"} href="https://www.instagram.com">
+          <Instagram className={classes.icon} />
+        </Grid>
+      </Grid>
     </footer>
   );
 }
