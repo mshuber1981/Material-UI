@@ -1,6 +1,8 @@
 import React from "react";
 import Lottie from "react-lottie";
 import animationData from "../animations/landinganimation/data";
+// Icons
+import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 // Components
 import {
   Button,
@@ -78,6 +80,7 @@ export default function Home() {
   return (
     <Grid container direction="column" className={classes.mainContainer}>
       <Grid item>
+        {/* Hero */}
         <Grid
           container
           justifyContent="flex-end"
@@ -110,6 +113,32 @@ export default function Home() {
           </Grid>
           <Grid sm item className={classes.animation}>
             <Lottie options={defaultOptions} height={"100%"} width={"100%"} />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        {/* Services */}
+        <Grid container direction="row">
+          <Grid item>
+            <Typography variant="h4">Custom Software Development</Typography>
+            <Typography variant="subtitle1">
+              Save Energy. Save time. Save money.
+            </Typography>
+            <Typography variant="subtitle1">
+              Complete digital solutions, from investigation to{" "}
+              <span>celebration</span>.
+            </Typography>
+            <Button variant="outlined">
+              <span style={{ marginRight: 10 }}>Learn More</span>
+              <ButtonArrow
+                width={10}
+                height={10}
+                fill={theme.palette.common.blue}
+              />
+            </Button>
+          </Grid>
+          <Grid item>
+            <img src={customSoftwareIcon} alt="Custom Software Icon" />
           </Grid>
         </Grid>
       </Grid>
