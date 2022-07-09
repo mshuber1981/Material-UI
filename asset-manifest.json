@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/Material-UI/static/js/main.ccbd92fd.js",
+    "main.js": "/Material-UI/static/js/main.f7ac74b3.js",
     "index.html": "/Material-UI/index.html",
     "static/media/logo.svg": "/Material-UI/static/media/logo.b9bbc23c635093fd1e4b08124fcee86c.svg",
     "static/media/Custom Software Icon.svg": "/Material-UI/static/media/Custom Software Icon.c2d29ed8281316668126bbfe181eec57.svg",
     "static/media/Footer Adornment.svg": "/Material-UI/static/media/Footer Adornment.b344a3e1a50ccc818a56dd89446d2ccd.svg",
-    "main.ccbd92fd.js.map": "/Material-UI/static/js/main.ccbd92fd.js.map"
+    "main.f7ac74b3.js.map": "/Material-UI/static/js/main.f7ac74b3.js.map"
   },
   "entrypoints": [
-    "static/js/main.ccbd92fd.js"
+    "static/js/main.f7ac74b3.js"
   ]
 }
