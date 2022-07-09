@@ -9,6 +9,7 @@ import {
   Grid,
   makeStyles,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@material-ui/core";
 import ButtonArrow from "../components/ui/ButtonArrow";
@@ -45,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "0.7rem",
     height: 35,
     padding: 5,
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "2em",
+    },
   },
   specialText: {
     fontFamily: "Pacifico",
@@ -69,11 +73,24 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: "0",
     },
   },
+  serviceContainer: {
+    marginTop: "12em",
+    [theme.breakpoints.down("sm")]: {
+      padding: 25,
+    },
+  },
+  icon: {
+    marginLeft: "2em",
+    [theme.breakpoints.down("xs")]: {
+      marginLeft: 0,
+    },
+  },
 }));
 
 export default function Home() {
   const classes = useStyles();
   const theme = useTheme();
+  const matchSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const defaultOptions = {
     loop: true,
@@ -125,8 +142,19 @@ export default function Home() {
       </Grid>
       <Grid item>
         {/* Services */}
-        <Grid container direction="row">
-          <Grid item>
+        <Grid
+          container
+          direction="row"
+          className={classes.serviceContainer}
+          justifyContent={matchSM ? "center" : undefined}
+        >
+          <Grid
+            item
+            style={{
+              marginLeft: matchSM ? 0 : "5rem",
+              textAlign: matchSM ? "center" : undefined,
+            }}
+          >
             <Typography variant="h4">Custom Software Development</Typography>
             <Typography variant="subtitle1" className={classes.subtitle}>
               Save Energy. Save time. Save money.
@@ -145,7 +173,11 @@ export default function Home() {
             </Button>
           </Grid>
           <Grid item>
-            <img src={customSoftwareIcon} alt="Custom Software Icon" />
+            <img
+              src={customSoftwareIcon}
+              alt="Custom Software Icon"
+              className={classes.icon}
+            />
           </Grid>
         </Grid>
       </Grid>
